@@ -1,0 +1,5 @@
+outs:
+- md5: 000b9918a92597a09c645549d5a54993
+  size: 337245
+  hash: md5
+  path: life_expectancy_data.csv

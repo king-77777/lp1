@@ -1,0 +1,12 @@
+strict digraph {
+"preprocess";
+"feature_selection";
+"train";
+"evaluate";
+"life_expectancy_data.csv.dvc";
+"preprocess" -> "feature_selection";
+"feature_selection" -> "train";
+"train" -> "evaluate";
+"life_expectancy_data.csv.dvc" -> "preprocess";
+}
+

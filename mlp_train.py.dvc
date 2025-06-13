@@ -1,0 +1,5 @@
+outs:
+- md5: 2c009d16928d8a68a055aacd3f3f5012
+  size: 5199
+  hash: md5
+  path: mlp_train.py

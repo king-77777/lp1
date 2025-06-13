@@ -1,0 +1,5 @@
+outs:
+- md5: b52024d1b278753a29bd1d6926d412a6
+  size: 1208
+  hash: md5
+  path: linear_train.py

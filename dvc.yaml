@@ -1,0 +1,33 @@
+
+stages:
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+      - life_expectancy_data.csv
+      - preprocess.py
+    outs:
+      - processed_data.csv
+
+  feature_selection:
+    cmd: python feature_selection.py
+    deps:
+      - processed_data.csv
+      - feature_selection.py
+    outs:
+      - selected_features.csv
+
+  train:
+    cmd: python train.py
+    deps:
+      - selected_features.csv
+      - train.py
+    outs:
+      - model.pkl
+
+  evaluate:
+    cmd: python evaluate.py
+    deps:
+      - model.pkl
+      - evaluate.py
+    outs:
+      - metrics.json

@@ -1,0 +1,5 @@
+outs:
+- md5: 991dd06829f4f3991399f4a2de9e74e2
+  size: 1265
+  hash: md5
+  path: cat_train.py

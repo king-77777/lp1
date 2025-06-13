@@ -1,0 +1,66 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+    - path: life_expectancy_data.csv
+      hash: md5
+      md5: 000b9918a92597a09c645549d5a54993
+      size: 337245
+    - path: preprocess.py
+      hash: md5
+      md5: 275a13bd02213a14c6ee44f58268d325
+      size: 208
+    outs:
+    - path: processed_data.csv
+      hash: md5
+      md5: 4f8788d5646acf9089115b24b9107842
+      size: 355604
+  feature_selection:
+    cmd: python feature_selection.py
+    deps:
+    - path: feature_selection.py
+      hash: md5
+      md5: 92ba8ea2180c545d6068f6e8799e8212
+      size: 581
+    - path: processed_data.csv
+      hash: md5
+      md5: 4f8788d5646acf9089115b24b9107842
+      size: 355604
+    outs:
+    - path: selected_features.csv
+      hash: md5
+      md5: 44cdb23fdc9df7e8ebf975400d6aeea8
+      size: 206919
+  train:
+    cmd: python train.py
+    deps:
+    - path: selected_features.csv
+      hash: md5
+      md5: 44cdb23fdc9df7e8ebf975400d6aeea8
+      size: 206919
+    - path: train.py
+      hash: md5
+      md5: 4180df8f9dc1f8ef02f8af4456427814
+      size: 345
+    outs:
+    - path: model.pkl
+      hash: md5
+      md5: 7f54e2c51a1822ca565c651b2c447c1f
+      size: 1273
+  evaluate:
+    cmd: python evaluate.py
+    deps:
+    - path: evaluate.py
+      hash: md5
+      md5: 07c48b6204cbd36c7f0c151115fcae6b
+      size: 559
+    - path: model.pkl
+      hash: md5
+      md5: 7f54e2c51a1822ca565c651b2c447c1f
+      size: 1273
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 0008265d6c04386389fe374cb3fcdec1
+      size: 34
